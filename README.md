@@ -18,3 +18,11 @@ Just install
 
 
 bower install
+
+
+Then use some thing like
+
+python -m SimpleHTTPServer 9090
+
+to serve this files. I couldn't get working with just opening the file.
+
