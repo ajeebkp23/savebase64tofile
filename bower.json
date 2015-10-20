@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "homepage": "https://github.com/ajeebkp23/savebase64tofile",
+  "description": "c",
+  "main": "c",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "blob": "*",
+    "FileSaver": "*",
+    "canvas-toBlob.js": "~0.1.3"
+  }
+}
