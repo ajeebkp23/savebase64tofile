@@ -11,7 +11,7 @@ http://github.com/eligrey/FileSaver.js/
 
 http://github.com/apitts/canvas-toBlob.js
 
-http://github.com/jquery/jquery
+http://code.jquery.com/jquery-1.11.3.min.js
 
 Or Ideally, if you are familiar with bower
 Just install 
