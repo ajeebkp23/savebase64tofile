@@ -20,9 +20,13 @@ Just install
 bower install
 
 
-Then use some thing like
+Then use some thing like,(simplest)
 
 python -m SimpleHTTPServer 9090
 
-to serve this files. I couldn't get working with just opening the file.
+to serve this files. I couldn't get working with just opening the file, since i was using symlink/shortcut.
+
+Or Try some thing like this
+
+http://www.codeproject.com/Articles/137979/Simple-HTTP-Server-in-C
 
