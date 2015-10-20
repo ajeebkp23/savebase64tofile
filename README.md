@@ -30,3 +30,4 @@ Or Try some thing like this
 
 http://www.codeproject.com/Articles/137979/Simple-HTTP-Server-in-C
 
+I think it will work by just opening the html, if corresponding js files are placed instead of links.
