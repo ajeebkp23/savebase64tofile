@@ -1,0 +1,1 @@
+bower_components/canvas-toBlob.js/canvas-toBlob.js

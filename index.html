@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="FileSaver.min.js"></script>
+    <script src="canvas-toBlob.js"></script>
+    <script src="Blob.js"></script>
+    <script src="jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+
+  function convToBase64(selectImage){
+            
+            // Create an image dynamically and select a path 
+            // if you want just load image from server
+            //path = 'some.png';
+            //image = document.createElement('img');
+            //document.body.appendChild(image);
+            //image.setAttribute('style','display:none');
+            //image.setAttribute('alt','script div');
+            //image.setAttribute("src", path);
+
+            // Alternative to above get element with jQuery
+            var image = selectImage.get(0);
+
+            // Create canvas
+            var imgCanvas = document.createElement("canvas"),
+                    imgContext = imgCanvas.getContext("2d");
+
+            // Make sure canvas is as big as the picture
+            imgCanvas.width = image.width;
+            imgCanvas.height = image.height;
+
+            // Draw image into canvas element
+            imgContext.drawImage(image, 0, 0, image.width, image.height);
+            // Save image as a data URL
+            imgInfom = imgCanvas.toDataURL("image/png");
+            console.log(imgInfom);
+
+            // if creating dynamic image
+            //document.body.removeChild(image);
+
+            return imgInfom;
+  }
+  function saveToLocal(mystrg){
+            var path = mystrg;
+            image = document.createElement('img');
+            document.body.appendChild(image);
+            image.setAttribute('style','display:none');
+            image.setAttribute('alt','script div');
+            image.setAttribute("src", path);
+
+            // Create canvas
+            var imgCanvas = document.createElement("canvas"),
+                    imgContext = imgCanvas.getContext("2d");
+
+            // Make sure canvas is as big as the picture
+            imgCanvas.width = image.width;
+            imgCanvas.height = image.height;
+
+            // Draw image into canvas element
+            imgContext.drawImage(image, 0, 0, image.width, image.height);
+
+            imgCanvas.toBlob(function(blob) {
+                saveAs(blob, "pretty image.png");
+            });
+
+            document.body.removeChild(image);
+  }
+        $('button#copy-me').click(function(){
+            var fooo = convToBase64($('img#old'))
+            $('img#tnext').attr('src',fooo);
+        });
+
+        $('button#save-me').click(function(){
+            // With Blog.js or FileSaver.js
+                saveToLocal(
+                         $('img#tnext').attr('src')
+                    );
+        });
+
+        $('button#open-new').click(function(){
+                // Simple method
+            var url = $('img#tnext').get(0).src;//.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+            window.open(url);
+        });
+  
+})
+    </script>
+    <img id="old" src="some.png" alt="image">
+    <button id="copy-me">
+            Copy this Image
+    </button>
+    <br>
+    <img id="tnext" src="" alt="Image comoing soon">
+    <br>
+    <button id="save-me">
+            Save this Image
+    </button>
+    <button id="open-new">
+            Open Image in New Tab
+    </button>
+</body>
+</html>
